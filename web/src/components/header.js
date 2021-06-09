@@ -16,13 +16,12 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
         <Icon symbol='hamburger' />
       </button>
 
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
-        <ul>
-          <li>
-            <Link to='/blog'>Blog</Link>
-          </li>
-        </ul>
-      </nav>
+        <nav className={cn(styles.nav, showNav && styles.showNav)}>
+           <ul><li><Link to='/blog'>Blog</Link></li></ul>
+        </nav>
+        <nav className={cn(styles.nav, showNav && styles.showNav)}>
+           <ul><li><Link to='/blog'>Blog 1</Link></li></ul>
+        </nav>                                             
     </div>
   </div>
 )
