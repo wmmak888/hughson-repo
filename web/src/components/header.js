@@ -9,7 +9,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <div className={styles.root}>
      <div className={styles.wrapper}>
          <div className={styles.branding}>
-                        <div style={{float:'right'}} >
+                        <div style={{color:'write', float:'right'}} >
                           <Link to='/'>About</Link>
                           <Link to='/project/'>Project</Link>
                           <Link to='/blog/'>Blog</Link>
