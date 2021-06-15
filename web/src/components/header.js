@@ -9,7 +9,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
       <div className={styles.branding}>
-              <div style={{background-color:'#334CCB'; overflow:'hidden';}} >
+              <div style={{backgroundcolor:'#334CCB'; overflow:'hidden';}} >
                   <Link to='/'>Home</Link>
                         <div style={{float:'right'}} >
                           <Link to='#hero'>About</Link>
