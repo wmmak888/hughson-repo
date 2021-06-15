@@ -2,6 +2,7 @@
 @import '../styles/custom-properties.css';
 
 .content {
+  color: #4A00D9 ;
   background: var(--color-white);
   min-height: calc(100% - 73px - 120px);
 
