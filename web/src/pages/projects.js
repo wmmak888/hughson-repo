@@ -42,4 +42,3 @@ export const ProjectsList = ({ headline }) => {
   );
 };
 
-export default ArchivePage;
