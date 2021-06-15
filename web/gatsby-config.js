@@ -27,15 +27,6 @@ module.exports = {
           families: ["Poppins:400,600,700,900", "Mulish:400,700"],
         },
       },
-    },
-    // Overwrite the default behavior for src/pages
-    // This changes the page-creator instance used by Gatsby
-    {
-      resolve: "gatsby-plugin-page-creator",
-      options: {
-        path: "${__dirname}/src/pages",
-        ignore: ["projects.js"],
-      }, 
-    },  
+    },    
   ],
 };
