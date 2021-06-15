@@ -54,19 +54,21 @@ exports.createPages = async ({graphql, actions}) => {
 const path = require("path")
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const queryResults = await graphql(`
-    query AllProjects {
-      allProjects {
+  const queryResults = await graphql('
+    query ProjectsQuery {
+      allSanityProject {
         nodes {
-          id
+          description
+          title
+          link          
         }
       }
     }
-  `)
-  const projectsTemplate = path.resolve(`src/components/projects.js`)
-  queryResults.data.allProjects.nodes.forEach(node => {
+  ')
+  const projectsTemplate = path.resolve('src/components/projects.js')
+  queryResults.data.ProjectsQuery.nodes.forEach(node => {
     createPage({
-      path: `/products/${node.id}`,
+      path: '/products/${node.title}',
       component: projects,
       context: {
         // This time the entire product is passed down as context
