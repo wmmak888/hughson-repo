@@ -16,7 +16,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
                           <Link to='/project/'>Project</Link>
                           <Link to='/blog/'>Blog</Link>
                         </div>
-               <div>
+               </div>
       </div>                                            
     </div>
   </div>
