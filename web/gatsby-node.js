@@ -26,18 +26,6 @@ async function createBlogPostPages (graphql, actions) {
       }
     }
   `)
-
-  const projectTemplate = path.resolve('src/components/projects.js')
-  queryResults.data.allProjects.nodes.forEach(node => {
-    createPage({
-      path: '/projects/${node.id}',
-      component: projectTemplate,
-      context: {
-        // This time the entire projects is passed down as context
-        projects: node,
-      },
-    })  
-  
   
   if (result.errors) throw result.errors
 
@@ -61,3 +49,34 @@ async function createBlogPostPages (graphql, actions) {
 exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
+
+
+const path = require("path")
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const queryResults = await graphql(`
+    query AllProjects {
+      allProjects {
+        nodes {
+          id
+        }
+      }
+    }
+  `)
+  const projectsTemplate = path.resolve(`src/components/projects.js`)
+  queryResults.data.allProjects.nodes.forEach(node => {
+    createPage({
+      path: `/products/${node.id}`,
+      component: projects,
+      context: {
+        // This time the entire product is passed down as context
+        projects: node,
+      },
+    })
+  })
+}
+
+
+
+
+
