@@ -27,7 +27,7 @@ async function createBlogPostPages (graphql, actions) {
     }
   `)
 
-  const projectTemplate = path.resolve('src/components/projectList.js')
+  const projectTemplate = path.resolve('src/components/projects.js')
   queryResults.data.allProjects.nodes.forEach(node => {
     createPage({
       path: '/projects/${node.id}',
