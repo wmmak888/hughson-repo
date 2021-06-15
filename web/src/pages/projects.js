@@ -9,70 +9,36 @@ import Layout from "../containers/layout";
 
 import { responsiveTitle1 } from "../components/typography.module.css";
 
-export const query = graphql`
-  query ArchivePageQuery {
-    posts: allSanityPost(
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
+export const ProjectsList = ({ headline }) => {
+  const projects = useStaticQuery(
+    graphql`
+      query ProjectsQuery {
+        allSanityProject {
+          nodes {
+            description
+            title
+            link
+            mainImage {
+              asset {
+                fluid {
+                  ...GatsbySanityImageFluid
+                }
+              }
             }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
           }
         }
       }
-    }
-  }
-`;
-
-const ArchivePage = (props) => {
-  const { data, errors } = props;
-
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
-  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
-
+    `
+  ).allSanityProject.nodes;
   return (
-    <Layout>
-      <SEO title="Archive" />
-      <div className="container mb-5">
-        <h1 className={responsiveTitle1}>Blog</h1>
-        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+    <div className="container mb-5">
+      <h2>{headline}</h2>
+      <div className="row">
+        {projects.map((p) => (
+          <ItemCard title={p.title} path={p.link} description={p.description} image={p.mainImage} />
+        ))}
       </div>
-    </Layout>
+    </div>
   );
 };
 
