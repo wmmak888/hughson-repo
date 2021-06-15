@@ -28,5 +28,14 @@ module.exports = {
         },
       },
     },
+    // Overwrite the default behavior for src/pages
+    // This changes the page-creator instance used by Gatsby
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: "${__dirname}/src/pages",
+        ignore: ["projects.js"],
+      }, 
+    },  
   ],
 };
