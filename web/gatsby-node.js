@@ -27,6 +27,18 @@ async function createBlogPostPages (graphql, actions) {
     }
   `)
 
+  const projectTemplate = path.resolve('src/components/projectList.js')
+  queryResults.data.allProjects.nodes.forEach(node => {
+    createPage({
+      path: '/projects/${node.id}',
+      component: projectTemplate,
+      context: {
+        // This time the entire projects is passed down as context
+        projects: node,
+      },
+    })  
+  
+  
   if (result.errors) throw result.errors
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
