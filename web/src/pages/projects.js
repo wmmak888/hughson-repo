@@ -12,7 +12,7 @@ import { responsiveTitle1 } from "../components/typography.module.css";
 export const ProjectsList = ({ headline }) => {
   const projects = useStaticQuery(
     graphql`
-      query ProjectsQuery {
+      query ProjectsQuery1 {
         allSanityProject {
           nodes {
             description
