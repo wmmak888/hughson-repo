@@ -37,12 +37,22 @@ async function createBlogPostPages (graphql, actions) {
       const {id, slug = {}, publishedAt} = edge.node
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/blog/${dateSegment}/${slug.current}/`
+      const path1 = `/projects/${dateSegment}/${slug.current}/`
 
       createPage({
         path,
         component: require.resolve('./src/templates/blog-post.js'),
         context: {id}
       })
+
+    
+      createPage({
+        path1,
+        component: require.resolve('./src/templates/blog-post.js'),
+        context: {id}
+      })
+    
+    
     })
 }
 
@@ -50,33 +60,6 @@ exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
 
-
-const path = require("path")
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const queryResults = await graphql('
-    query ProjectsQuery {
-      allSanityProject {
-        nodes {
-          description
-          title
-          link          
-        }
-      }
-    }
-  ')
-  const projectsTemplate = path.resolve('src/components/projects.js')
-  queryResults.data.ProjectsQuery.nodes.forEach(node => {
-    createPage({
-      path: '/products/${node.title}',
-      component: projects,
-      context: {
-        // This time the entire product is passed down as context
-        projects: node,
-      },
-    })
-  })
-}
 
 
 
