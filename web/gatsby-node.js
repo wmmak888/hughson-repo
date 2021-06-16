@@ -49,7 +49,7 @@ async function createBlogPostPages (graphql, actions) {
 //
 // Create Projects pages dynamically
 //
-async function createProjectostPages (graphql, actions) {
+async function createProjectPostPages (graphql, actions) {
   const {createPage} = actions
   const resultPj = await graphql(`
     {
