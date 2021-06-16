@@ -60,7 +60,7 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const ProjectPostTemplate = path.resolve('src/templates/projects-post.js')
-  const result = await graphql('
+  const result = graphql('
     query {
       allSamplePages {
         edges {
