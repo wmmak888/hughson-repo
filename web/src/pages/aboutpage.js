@@ -12,7 +12,7 @@ import { AboutSection } from "../components/aboutSection";
 const aboutpage = () => (
   <Layout>
     <SEO title='About' />
-    <AboutSection />; 
+    <aboutSection />; 
   </Layout>
 )
 
