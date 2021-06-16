@@ -26,7 +26,7 @@ async function createBlogPostPages (graphql, actions) {
       }
     }
   `)
-  
+
   if (result.errors) throw result.errors
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
@@ -36,7 +36,7 @@ async function createBlogPostPages (graphql, actions) {
     .forEach((edge, index) => {
       const {id, slug = {}, publishedAt} = edge.node
       const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = '/blog/${dateSegment}/${slug.current}/'
+      const path = `/blog/${dateSegment}/${slug.current}/`
 
       createPage({
         path,
@@ -46,18 +46,9 @@ async function createBlogPostPages (graphql, actions) {
     })
 }
 
-//
-// Create Projects pages dynamically
-//
-
-//
-// Create Page //
-//
-
 exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
-
 
 
 
