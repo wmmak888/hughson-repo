@@ -57,7 +57,7 @@ exports.createPages = async ({graphql, actions}) => {
 createPage({
   path: '/projects/',
   component: path.resolve('./src/templates/projects-post.js'),
-  ownerNodeId: `'23456',
+  ownerNodeId: '23456',
   // The context is passed as props to the component as well
   // as into the component's GraphQL query.
   context: {
