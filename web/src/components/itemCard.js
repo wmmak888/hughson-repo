@@ -10,9 +10,11 @@ const ItemCard = ({ title, description, image, path }) => {
     <div className="col-md-6 col-sm-12 col-xs-12 mt-4">
       <div className="card h-100">
         <div class="embed-responsive embed-responsive-16by9">
-          {image ? (
-            <ItemImage src={image.asset.fluid.src} className="card-img-top embed-responsive-item" />
-          ) : null}
+         <Link to={path}>
+            {image ? (
+               <ItemImage src={image.asset.fluid.src} className="card-img-top embed-responsive-item" />
+             ) : null}
+          </Link>
         </div>
         <div className="card-body">
           {path ? (
