@@ -1,6 +1,8 @@
 import * as React from "react"
+import { ProjectsList } from "../components/projectsList";
 
-export default function projects() {
-  return <div>Projects</div>
+export default function projects() 
+{
+  return <ProjectsList {...s} />;
 }
 
