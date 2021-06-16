@@ -55,6 +55,9 @@ exports.createPages = async ({graphql, actions}) => {
 }
 
 // Create Projects pages dynamically
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
+//
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const ProjectPostTemplate = path.resolve(`src/templates/projects-post.js`)
