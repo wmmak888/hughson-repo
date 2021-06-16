@@ -95,9 +95,9 @@ exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
 
-exports.createPages = async ({graphql, actions}) => {
-  await createProjectPostPages(graphql, actions)
-}
+//exports.createPages = async ({graphql, actions}) => {
+//  await createProjectPostPages(graphql, actions)
+//}
 
 
 
