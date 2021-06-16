@@ -60,7 +60,7 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const ProjectPostTemplate = path.resolve('src/templates/projects-post.js')
-  const result = graphql('
+  const result1 = graphql('
     query {
       allSamplePages {
         edges {
@@ -72,7 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   ')
-  result.data.allSamplePages.edges.forEach(edge => {
+  result1.data.allSamplePages.edges.forEach(edge => {
     createPage({
       path: '/projects/${edge.node.slug}',
       component: ProjectPostTemplate,
