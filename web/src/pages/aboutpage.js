@@ -6,8 +6,7 @@ import { AboutSection } from "../components/aboutSection";
 const aboutpage = () => (
   <Layout>
     <SEO title='About' />
-    <h2>About</h2>
-    <aboutSection />; 
+    <AboutSection />; 
   </Layout>
 )
 
