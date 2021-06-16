@@ -34,3 +34,30 @@ export const ProjectsList = ({ headline }) => {
     </div>
   );
 };
+
+const ProjectsPage = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
+  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
+
+  return (
+    <Layout>
+      <SEO title="Archive" />
+      <div className="container mb-5">
+        <h1 className={responsiveTitle1}>Project</h1>
+        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+      </div>
+    </Layout>
+  );
+};
+
+export default ProjectsPage;
+
