@@ -43,10 +43,6 @@ async function createBlogPostPages (graphql, actions) {
         component: require.resolve('./src/templates/blog-post.js'),
         context: {id}
       })
-
-    
-
-    
     })
 }
 
