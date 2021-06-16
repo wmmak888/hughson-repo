@@ -53,35 +53,10 @@ async function createBlogPostPages (graphql, actions) {
 exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
-
-// Create Projects pages dynamically
-const path = require('path')
 //
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const ProjectPostTemplate = path.resolve('src/templates/projects-post.js')
-  const result1 = graphql('
-    query {
-      allSamplePages {
-        edges {
-          node {
-            slug
-            title
-          }
-        }
-      }
-    }
-  ')
-  result1.data.allSamplePages.edges.forEach(edge => {
-    createPage({
-      path: '/projects/${edge.node.slug}',
-      component: ProjectPostTemplate,
-      context: {
-        title: edge.node.title,
-      },
-    })
-  })
-}
+// Create Projects pages dynamically
+//
+
 
 
 
