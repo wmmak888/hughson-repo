@@ -54,12 +54,13 @@ exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
 
-createPage({
+// The context is passed as props to the component as well
+// as into the component's GraphQL query.
+
+exports.createPage({
   path: '/projects/',
   component: path.resolve('./src/templates/projects-post.js'),
   ownerNodeId: '23456',
-  // The context is passed as props to the component as well
-  // as into the component's GraphQL query.
   context: {
     id: '123456',
   },
