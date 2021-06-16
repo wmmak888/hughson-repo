@@ -11,79 +11,8 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 
-import { Hero } from "../components/hero";
 import { ProjectsList } from "../components/projectsList";
-import { AboutSection } from "../components/aboutSection";
-import { BlogsSection } from "../components/blogsSection";
 
-export const query = graphql`
-  query MyQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
-    }
-    page: sanityPage(path: { eq: "/" }) {
-      id
-      content {
-        ... on SanityAboutSection {
-          _key
-          _type
-          headline
-          experiences {
-            title
-            years
-          }
-          passions {
-            title
-            icon
-          }
-          skills {
-            title
-            icon
-          }
-          tools {
-            title
-            icon
-          }
-          schools {
-            title
-            years
-          }
-        }
-        ... on SanityBlogList {
-          _key
-          _type
-          headline
-        }
-        ... on SanityHero {
-          _key
-          _type
-          ctas {
-            title
-            link
-          }
-          description
-          headline
-          mainImage {
-            asset {
-              url
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          topline
-        }
-        ... on SanityProjectList {
-          _key
-          _type
-          headline
-        }
-      }
-    }
-  }
-`;
 const RenderSections = ({ sections }) => sections.map((s) => { return <ProjectsList {...s} />;  } ;
 
 const Projects = (props) => {
