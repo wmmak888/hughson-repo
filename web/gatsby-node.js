@@ -36,7 +36,7 @@ async function createBlogPostPages (graphql, actions) {
     .forEach((edge, index) => {
       const {id, slug = {}, publishedAt} = edge.node
       const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/blog/${dateSegment}/${slug.current}/`
+      const path = '/blog/${dateSegment}/${slug.current}/'
 
       createPage({
         path,
@@ -54,17 +54,32 @@ exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
 }
 
-// The context is passed as props to the component as well
-// as into the component's GraphQL query.
-
-exports.createPage({
-  path: '/projects/',
-  component: path.resolve('./src/templates/projects-post.js'),
-  ownerNodeId: '23456',
-  context: {
-    id: '123456',
-  },
-})
+// Create Projects pages dynamically
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const ProjectPostTemplate = path.resolve(`src/templates/projects-post.js`)
+  const result = await graphql(`
+    query {
+      allSamplePages {
+        edges {
+          node {
+            slug
+            title
+          }
+        }
+      }
+    }
+  `)
+  result.data.allSamplePages.edges.forEach(edge => {
+    createPage({
+      path: '/projects/${edge.node.slug}',
+      component: ProjectPostTemplate,
+      context: {
+        title: edge.node.title,
+      },
+    })
+  })
+}
 
 
 
