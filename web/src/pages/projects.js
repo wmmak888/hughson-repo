@@ -1,63 +1,6 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import ItemCard from "./components/itemCard";
+import * as React from "react"
 
-export const ProjectsList = ({ headline }) => {
-  const projects = useStaticQuery(
-    graphql`
-      query ProjectsQuery {
-        allSanityProject {
-          nodes {
-            description
-            title
-            link
-            mainImage {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    `
-  ).allSanityProject.nodes;
-  return (
-    <div className="container mb-5">
-      <h2>{headline}</h2>
-      <div className="row">
-        {projects.map((p) => (
-          <ItemCard title={p.title} path={p.link} description={p.description} image={p.mainImage} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const ProjectsPage = (props) => {
-  const { data, errors } = props;
-
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
-  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
-
-  return (
-    <Layout>
-      <SEO title="Archive" />
-      <div className="container mb-5">
-        <h1 className={responsiveTitle1}>Project</h1>
-        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
-      </div>
-    </Layout>
-  );
-};
-
-export default ProjectsPage;
+export default function projects() {
+  return <div>Projects</div>
+}
 
