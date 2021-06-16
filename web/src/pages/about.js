@@ -3,11 +3,11 @@ import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { AboutSection } from "../components/aboutSection";
 
-const projects = () => (
+const AboutPage = () => (
   <Layout>
     <SEO title='About' />
     <AboutSection />;  } ;
   </Layout>
 )
 
-export default projects
+export default AboutPage
