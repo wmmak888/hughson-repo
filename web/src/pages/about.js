@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
+import { AboutSection } from "../components/aboutSection";
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
-const AboutPage = () => (
+const projects = () => (
   <Layout>
     <SEO title='About' />
-    <h2>About</h2>
-    <p>About Page</p>
+    <AboutSection />;  } ;
   </Layout>
 )
 
-export default AboutPage
+export default projects
