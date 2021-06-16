@@ -55,13 +55,12 @@ exports.createPages = async ({graphql, actions}) => {
 }
 
 // Create Projects pages dynamically
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require('path')
 //
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const ProjectPostTemplate = path.resolve(`src/templates/projects-post.js`)
-  const result = await graphql(`
+  const ProjectPostTemplate = path.resolve('src/templates/projects-post.js')
+  const result = await graphql('
     query {
       allSamplePages {
         edges {
@@ -72,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  ')
   result.data.allSamplePages.edges.forEach(edge => {
     createPage({
       path: '/projects/${edge.node.slug}',
