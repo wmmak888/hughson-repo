@@ -84,11 +84,7 @@ export const query = graphql`
     }
   }
 `;
-const RenderSections = ({ sections }) =>
-  sections.map((s) => {
-      return <ProjectsList {...s} />;
-    }
-  });
+const RenderSections = ({ sections }) => sections.map((s) => { return <ProjectsList {...s} />;  } ;
 
 const Projects = (props) => {
   const { data, errors } = props;
