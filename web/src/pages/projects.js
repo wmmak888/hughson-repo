@@ -6,7 +6,7 @@ import { ProjectsList } from "../components/projectsList";
 const projects = () => (
   <Layout>
     <SEO title='Hughson Project' />
-    <h1>Project</h1>
+    <h2>Project</h2>
     <ProjectsList />; 
   </Layout>
 )
