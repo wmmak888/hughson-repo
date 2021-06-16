@@ -37,7 +37,6 @@ async function createBlogPostPages (graphql, actions) {
       const {id, slug = {}, publishedAt} = edge.node
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/blog/${dateSegment}/${slug.current}/`
-      const path1 = `/projects/${dateSegment}/${slug.current}/`
 
       createPage({
         path,
@@ -46,18 +45,24 @@ async function createBlogPostPages (graphql, actions) {
       })
 
     
-      createPage({
-        path1,
-        component: require.resolve('./src/templates/projects-post.js'),
-        context: {id}
-      })
-    
+
     
     })
 }
 
 exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
+}
+
+createPage({
+  path: '/projects/',
+  component: path.resolve('./src/templates/projects-post.js'),
+  ownerNodeId: `'23456',
+  // The context is passed as props to the component as well
+  // as into the component's GraphQL query.
+  context: {
+    id: '123456',
+  },
 }
 
 
