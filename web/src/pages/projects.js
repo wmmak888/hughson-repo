@@ -13,36 +13,27 @@ import Layout from "../containers/layout";
 
 import { ProjectsList } from "../components/projectsList";
 
-const RenderSections = ({ sections }) => sections.map((s) => { return <ProjectsList {...s} />;  } ;
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-const Projects = (props) => {
-  const { data, errors } = props;
+const projects = () => (
+  <Layout>
+    <SEO title='Hughson Project' />
+    <h1>Project</h1>
+    <ProjectsList />;  } ;
+  </Layout>
+)
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
+export default projects
 
-  const site = (data || {}).site;
-  console.log("data", data);
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
 
-  return (
-    <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <RenderSections sections={data.page.content} />
-      </Container>
-    </Layout>
-  );
-};
 
-export default Projects;
+
+
+
+
+
+
+
+
 
