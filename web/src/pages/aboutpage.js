@@ -91,13 +91,33 @@ const RenderSections = ({ sections }) =>
     }
   });
 
-const aboutpage = () => (
+const aboutpage = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
+  const site = (data || {}).site;
+  console.log("data", data);
+  if (!site) {
+    throw new Error(
+      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
+    );
+  }
+
+  return (
     <Layout>
       <SEO title='About' />
       <Container>
         <RenderSections sections={data.page.content} />
       </Container>
     </Layout>
-)
+  );
+};
 
 export default aboutpage
