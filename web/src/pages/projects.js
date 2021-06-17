@@ -5,7 +5,7 @@ import { ProjectsList } from "../components/projectsList";
 
 const projects = () => (
   <Layout>
-    <SEO title='Hughson Project' />
+    <SEO title='Hughson Project' headline={'My Projects'}  />
     <ProjectsList />; 
   </Layout>
 )
