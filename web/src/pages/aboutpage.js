@@ -93,7 +93,7 @@ const RenderSections = ({ sections }) =>
 
 const aboutpage = () => (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title='About' />
       <Container>
         <RenderSections sections={data.page.content} />
       </Container>
