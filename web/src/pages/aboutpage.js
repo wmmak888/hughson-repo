@@ -81,11 +81,23 @@ export const query = graphql`
   }
 `;
 
+const RenderSections = ({ sections }) =>
+  sections.map((s) => {
+    switch (s._type) {
+      case "aboutSection":
+        return <AboutSection {...s} />;
+      default:
+        return `Missing component ${s._type}`;
+    }
+  });
+
 const aboutpage = () => (
-  <Layout>
-    <SEO title='About' />
-    <aboutSection />; 
-  </Layout>
+    <Layout>
+      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <Container>
+        <RenderSections sections={data.page.content} />
+      </Container>
+    </Layout>
 )
 
 export default aboutpage
