@@ -86,8 +86,6 @@ const RenderSections = ({ sections }) =>
     switch (s._type) {
       case "aboutSection":
         return <AboutSection {...s} />;
-      default:
-        return `Missing component ${s._type}`;
     }
   });
 
