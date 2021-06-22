@@ -111,7 +111,7 @@ export const RowWrapper = styled.div`
   padding: 2rem 3rem;
   padding-bottom: 0;
 `;
-const WhiteTitle = styled.h2`
+const WhiteTitle = styled.h3`
   color: white;
 `;
 export const MiniTitle = styled.h3`
