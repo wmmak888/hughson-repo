@@ -25,7 +25,7 @@ export const ProjectsList = ({ headline }) => {
   ).allSanityProject.nodes;
   return (
     <div className="container mb-5">
-      <h2>{headline}</h2>
+      <h3>{headline}</h3>
       <div className="row">
         {projects.map((p) => (
           <ItemCard title={p.title} path={p.link} description={p.description} image={p.mainImage} />
