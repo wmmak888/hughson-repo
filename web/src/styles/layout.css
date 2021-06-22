@@ -28,6 +28,15 @@ h2 {
   color: rgb(74, 00, 217);
   font-size: 2.5rem;
 }
+
+h3 {
+  line-height: 1.2;
+  word-spacing: 1px;
+  font-weight: 700;
+  color: rgb(74, 00, 217);
+  font-size: 1.17rem;
+}
+
 h1, h2, h3, h4, h5 {
   margin-bottom: 1.5rem;
   font-family: "Poppins", sans-serif;
