@@ -89,7 +89,7 @@ const RenderSections = ({ sections }) =>
     }
   });
 
-const aboutpage = (props) => {
+const zaboutpage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -118,4 +118,4 @@ const aboutpage = (props) => {
   );
 };
 
-export default aboutpage
+export default zaboutpage
